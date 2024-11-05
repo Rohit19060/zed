@@ -13087,14 +13087,17 @@ impl<'a> WordBreakingTokenizer<'a> {
         Self { input }
     }
 }
+
 fn is_ideographic_char(ch: char) -> bool {
     use unicode_script::Script::*;
     use unicode_script::UnicodeScript;
     matches!(ch.script(), Han | Tangut | Yi)
 }
+
 fn should_stay_with_preceding_ideograph(ch: char) -> bool {
     matches!(ch, '。' | '、' | '，' | '？' | '！' | '：' | '；' | '…')
 }
+
 impl<'a> Iterator for WordBreakingTokenizer<'a> {
     /// Yields a span, the char length of the token, and whether it was
     /// whitespace. Note that it breaks for sentence boundaries.
