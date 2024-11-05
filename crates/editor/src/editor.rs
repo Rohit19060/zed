@@ -13077,8 +13077,7 @@ mod tests {
     }
 }
 
-/// Tokenizes a string into runs of either whitespace or non-whitespace.
-/// Whitespace runs always come back as single spaces.
+/// Tokenizes a string into runs of text that should stick together, or that is whitespace.
 struct WordBreakingTokenizer<'a> {
     input: &'a str,
 }
